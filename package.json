@@ -1,0 +1,25 @@
+{
+  "name": "multi_array",
+  "version": "1.0.0",
+  "description": "Dynamic Multi-dimensional Array",
+  "main": "multi_array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taichi-master/multi_array.git"
+  },
+  "keywords": [
+    "dynamic",
+    "multi",
+    "dimensional",
+    "array"
+  ],
+  "author": "Kei Sing Wong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taichi-master/multi_array/issues"
+  },
+  "homepage": "https://github.com/taichi-master/multi_array#readme"
+}
