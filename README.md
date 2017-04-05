@@ -2,13 +2,16 @@
 Dynamic means you can create any dimensional array in run time.
 
 FYI, whenever you see an array in this form, it is not dynamic.
-  arr[1][2][3]  // <= not dynamic
+```javascript
+  arr[1][2][3] = ...  // <= not dynamic
+```
 
 # Usages
 There are two ways to use the library.
 
 ## 1). Use it from pure function.
 e.g.
+```javascript
 var extents = [4,3,2],
     data = [...Array(24)].map((x,i) => i),
     arr = multi_array(extents);
@@ -27,10 +30,11 @@ for (let i=0; i < extents[0]; i++)
 // dynamic way
 idx = 0;
 forEach(arr, (x, indices, arr, i) => assert.equal(x, data[idx++], "Data mismatch"));
-
+```
 
 ## 2). Use it from a class.
 e.g.
+```javascript
 var extents = [4,3,2],
     data = [...Array(24)].map((x,i) => i),
     arr_obj = new MultiArray(extents);
@@ -41,5 +45,5 @@ console.log(arr_obj);
 
 var idx = 0;
 arr_obj.forEach((x, indices, arr, i) => assert.equal(x, data[idx++], "Data mismatch"));
-
+```
 Please see more usages in the test folder.
