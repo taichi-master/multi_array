@@ -41,7 +41,7 @@ class MultiArray {
   static create (extents, data) {
     return multi_array(extents, data);
   }
-  
+
   static size (extents) {
     return extents.reduce((a,b) => a * b, 1);
   }
@@ -109,36 +109,6 @@ class MultiArray {
   }
 }
 
-// MultiArray.prototype.get = function (indices) {
-//   return getValue(this.value, indices);
-// }
-//
-// MultiArray.prototype.set = function (indices, value) {
-//   setValue(this.value, indices, value);
-//   return this;
-// }
-
-// MultiArray.prototype.forEach = function (fn) {
-//   forEach(this.value, fn);
-//   return this;
-// }
-//
-// MultiArray.prototype.load = function (data = []) {
-//   let idx = 0;
-//   this.forEach((x, indices, arr, i) => arr[i] = data[idx++]);
-//   return this;
-// }
-//
-// MultiArray.prototype.data = function () {
-//   var arr = Array(this.size),
-//       i = 0;
-//   this.forEach(x => arr[i++] = x);
-//   return arr;
-// }
-
-// exports.getValue = getValue;
-// exports.multi_array = multi_array;
-
 module.exports = {
   MultiArray,
   multi_array,
@@ -146,5 +116,3 @@ module.exports = {
   setValue,
   forEach
 };
-// export default MultiArray;
-// module.exports = multi_array;
