@@ -35,7 +35,7 @@ exports['create'] = {
     assert.ok(Array.isArray(arr_obj.value), "Not an array.");
     arr_obj = new MultiArray(extents, data); // optional second parameter for the data.
     console.log('console.log');
-    console.log(arr_obj);
+    console.log(arr_obj.value);
 
     var idx = 0;
     arr_obj.forEach((x, indices, arr, i) => assert.equal(x, data[idx++], "Data mismatch"));

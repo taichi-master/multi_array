@@ -37,7 +37,7 @@ var extents = [4,3,2],
     data = [...Array(24)].map((x,i) => i),
     arr_obj = new MultiArray(extents);
 arr_obj = new MultiArray(extents, data); // optional second parameter for the data.
-console.log(arr_obj);
+console.log(arr_obj.value);
 
 var idx = 0;
 arr_obj.forEach((x, indices, arr, i) => assert.equal(x, data[idx++], "Data mismatch"));
