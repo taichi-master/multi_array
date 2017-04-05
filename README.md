@@ -15,9 +15,7 @@ e.g.
 var extents = [4,3,2],
     data = [...Array(24)].map((x,i) => i),
     arr = multi_array(extents);
-assert.ok(Array.isArray(arr), "Not an array.");
 arr = multi_array(extents, data); // optional second parameter for the data.
-console.log('console.log');
 console.log(arr);
 
 // this is not dynamic because three "for" loops are being hard coded here.
@@ -38,9 +36,7 @@ e.g.
 var extents = [4,3,2],
     data = [...Array(24)].map((x,i) => i),
     arr_obj = new MultiArray(extents);
-assert.ok(Array.isArray(arr_obj.value), "Not an array.");
 arr_obj = new MultiArray(extents, data); // optional second parameter for the data.
-console.log('console.log');
 console.log(arr_obj);
 
 var idx = 0;
