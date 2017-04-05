@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert'),
-    { MultiArray, multi_array, forEach } = require('../multi_array');
+    { MultiArray, multi_array, forEach, getValue } = require('../multi_array');
 
 exports['create'] = {
 	before: function() {
@@ -39,6 +39,27 @@ exports['create'] = {
 
     var idx = 0;
     arr_obj.forEach((x, indices, arr, i) => assert.equal(x, data[idx++], "Data mismatch"));
+	},
+
+  'static functions create and size': function() {
+    var extents = [4,3,2],
+        data = [...Array(MultiArray.size(extents))].map((x,i) => i),
+        arr1 = multi_array(extents, data),
+        arr2 = MultiArray.create(extents, data);
+
+    assert.notStrictEqual(arr1, arr2, "Shouldn't be the same");
+    forEach(arr1, (x, indices, arr, i) => assert.equal(x, getValue(arr2, indices), "Data mismatch"));
+	},
+
+	'MultiArray properties': function() {
+    var extents = [4,3,2],
+        data = [...Array(24)].map((x,i) => i),
+        arr_obj = new MultiArray(extents, data);
+    assert.equal(arr_obj.dimension, extents.length, "Dimension mismatch");
+    assert.equal(arr_obj.size, 24, "Size not the same");
+    assert.equal(arr_obj.size, MultiArray.size(extents), "Size not the same");
+    for (var i=0, len=extents.length; i < len; i++)
+      assert.equal(arr_obj.extents[i], extents[i], "Extents mismatch");
 	},
 };
 
