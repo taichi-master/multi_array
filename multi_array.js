@@ -93,8 +93,10 @@ class MultiArray {
     return obj;
   }
 
-  reduce (fn) {
-
+  reduce (fn, init=null) {
+    var value = init;
+    this.forEach((x, indices, arr, i) => value = fn(value, x));
+    return value;
   }
 
   load (data = []) {
