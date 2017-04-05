@@ -88,7 +88,9 @@ class MultiArray {
   }
 
   map (fn) {
-
+    var obj = new MultiArray(this.extents);
+    this.forEach((x, indices, arr, i) => obj.set(indices, fn(x, indices, arr, i)));
+    return obj;
   }
 
   reduce (fn) {
