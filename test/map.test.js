@@ -26,10 +26,6 @@ exports['map'] = {
     // got to be transformable.
     var idx = 0;
     mapped_obj.forEach((x, indices, arr, i) => assert.equal(x, data[idx++] * 10, "Data mismatch"));
-
-    // assert.notStrictEqual(data, range, "Shouldn't be the same");
-    // for (var i=0, len=range.length; i < len; i++)
-    //   assert.equal(data[i], range[i], "Data mismatch");
 	},
 };
 
