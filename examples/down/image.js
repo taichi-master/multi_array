@@ -14,28 +14,33 @@ class Image extends MultiArray {
         get: function () {
           return L;
         }
+      },
+      max_sample: {
+        get: function () {
+          return Math.min(...L);
+        }
       }
     })
   }
 
-  downSample (l) {
+  downSample (l=1) {
     let L = this.L.map(x=>x-l),
         down = new Image(L),
         trunk = Array(this.size / down.size),
         section_size = Math.pow(2, l),
         oImage = this;
 
+    let idx = 0,
+        dive_in = (indices, oIndices=[]) => {
+          if (indices.length > 0)
+            for (let s=indices[0]*section_size, len=s+section_size; s < len; s)
+              dive_in(indices.slice(1), [...oIndices, s++]);
+          else
+            trunk[idx++] = oImage.get(oIndices);
+        };
+
     down.forEach((x, indices, arr, i) => {
-      let idx = 0;
-
-      function dive_in (indices, oIndices=[]) {
-        if (indices.length > 0)
-          for (let s=indices[0]*section_size, len=s+section_size; s < len; s)
-            dive_in(indices.slice(1), [...oIndices, s++]);
-        else
-          trunk[idx++] = oImage.get(oIndices);
-      }
-
+      idx = 0;
       dive_in(indices);
       arr[i] = modal(trunk);
     });
