@@ -43,3 +43,7 @@ var idx = 0;
 arr_obj.forEach((x, indices, arr, i) => assert.equal(x, data[idx++], "Data mismatch"));
 ```
 Please see more usages in the test folder.
+
+License:
+-------
+MIT &copy; 2017 Kei Sing Wong
